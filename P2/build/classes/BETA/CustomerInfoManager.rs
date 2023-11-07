@@ -1,0 +1,4 @@
+BETA.SettingInfo
+CMS.CustomerInfoManager
+BETA.CustomerInfoManager
+CMS.SettingInfo

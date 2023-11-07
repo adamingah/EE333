@@ -7,23 +7,25 @@ package Beta;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import javax.swing.DefaultListModel;
 
 
 /**
  *
  * @author adamingah
  */
-public class StatesInfo extends javax.swing.JPanel {
+public class StatesInfoFrame extends javax.swing.JPanel {
 
     /**
      * Creates new form StatesInfo
      */
-    public StatesInfo() {
+    public StatesInfoFrame() {
         
         initComponents();
         String Line;
         
         this.AbbreviationComboBoxV1.removeAllItems(); //note: Not remove all
+        javax.swing.DefaultListModel List = new DefaultListModel(); // default string
 
         
         File AbbreviationsFile = new File("List_of_U.S._state_Abbrviations.txt");
@@ -35,8 +37,10 @@ public class StatesInfo extends javax.swing.JPanel {
 
             while((Line = AbbreviationsBufferedReader.readLine()) != null){
                 this.AbbreviationComboBoxV1.addItem(Line);
+                List.addElement(Line);
             
             }
+            this.AbbreviationComboBoxV1.setModel(List);
         } catch (Exception ex){
             //Logger.getLogger(StatesInfo.)
             System.out.println(ex.toString());
@@ -147,6 +151,16 @@ public class StatesInfo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public static void main(String args[]){
+        java.awt.EventQueue.invokeLater(new Runnanble(){
+            public void run(){
+                new StatesInfoFrame().setVisible(true);
+            }
+        
+        });
+    }
+    
+    
     private void AbbreviationComboBoxV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbbreviationComboBoxV1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AbbreviationComboBoxV1ActionPerformed

@@ -1,0 +1,2 @@
+CMS.CustomerInfoManager
+CMS.SettingInfo
